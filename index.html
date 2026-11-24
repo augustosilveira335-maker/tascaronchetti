@@ -21,7 +21,7 @@
   --papel:#F4F1EA; --pedra:#E8E4DA; --cartao:#FBF9F4;
   --tinta:#1B2326; --tinta2:#3F4A4D; --mudo:#6E7779; --linha:rgba(27,35,38,.16); --linha2:rgba(27,35,38,.08);
   --petroleo:#0F3D42; --petroleo2:#134B51; --acento:#07727A; --agua:#A8C8C0;
-  --papel-d:#F4F1EA; --mudo-d:#A9BDBA; --linha-d:rgba(244,241,234,.18);
+  --papel-d:#F4F1EA; --mudo-d:#C3D3D0; --linha-d:rgba(244,241,234,.18);
   --serifa:"Fraunces",Georgia,"Times New Roman",serif;
   --sans:"Inter Tight",Arial,Helvetica,sans-serif;
   --larg:1240px; --pad:clamp(20px,4vw,48px);
@@ -37,12 +37,14 @@ button,input,select{font:inherit;color:inherit}
 .rot{display:block;font:500 12.5px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--acento)}
 .escuro .rot{color:var(--agua)}
 h1,h2,h3{font-family:var(--serifa);font-weight:340;font-variation-settings:"opsz" 96;letter-spacing:-.015em;margin:0;color:var(--tinta)}
-h1 em,h2 em,h3 em{font-style:italic;color:var(--acento)}
+h1 em,h2 em,h3 em{font-style:italic;color:inherit}
+h1 em{color:var(--acento)}
+h1,h2,.end{text-wrap:balance}
 .escuro h2,.escuro h3{color:var(--papel-d)}
 .escuro h2 em{color:var(--agua)}
 .sec{padding-block:clamp(80px,11vw,148px)}
-.sec-cab{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(24px,5vw,80px);align-items:end;margin-bottom:clamp(40px,6vw,72px)}
-.sec-cab h2{font-size:clamp(40px,5.2vw,68px);line-height:1.06;margin-top:16px}
+.sec-cab{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,5vw,80px);align-items:end;margin-bottom:clamp(40px,6vw,72px)}
+.sec-cab h2{font-size:clamp(34px,3.8vw,54px);line-height:1.08;margin-top:16px}
 .sec-cab p{margin:0;max-width:46ch;color:var(--tinta2)}
 .escuro .sec-cab p{color:var(--mudo-d)}
 .fio{border:0;border-top:1px solid var(--linha);margin:0}
@@ -61,17 +63,17 @@ h1 em,h2 em,h3 em{font-style:italic;color:var(--acento)}
 .wa-ico{width:18px;height:18px;flex:none}
 
 /* topo */
-.topo{position:sticky;top:0;z-index:50;background:rgba(244,241,234,.92);-webkit-backdrop-filter:saturate(1.2) blur(10px);backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid transparent;transition:border-color .3s}
+.topo{position:sticky;top:0;z-index:50;background:var(--papel);border-bottom:1px solid transparent;transition:border-color .3s}
 .topo.rolou{border-color:var(--linha2)}
 .topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:84px}
 .marca{display:block;flex:none}
-.marca img{width:168px;height:auto}
+.marca img{width:196px;height:auto}
 .menu{display:flex;align-items:center;gap:clamp(18px,2.4vw,36px)}
 .menu a{font-size:15px;font-weight:500;text-decoration:none;color:var(--tinta2);transition:color .2s}
 .menu a:hover{color:var(--tinta)}
 .menu .tel{color:var(--tinta);font-variant-numeric:tabular-nums}
-.menu .btn{min-height:44px;padding:0 18px;font-size:15px;color:var(--papel)}
-.menu .btn:hover{color:var(--papel)}
+.menu .btn{min-height:44px;padding:0 18px;font-size:15px;background:transparent;color:var(--tinta);border-color:var(--tinta)}
+.menu .btn:hover{background:var(--tinta);color:var(--papel);border-color:var(--tinta)}
 .abre-menu{display:none;background:none;border:1px solid var(--linha);width:48px;height:44px;cursor:pointer;align-items:center;justify-content:center}
 .abre-menu i{display:block;width:18px;height:1.5px;background:var(--tinta);position:relative}
 .abre-menu i::before,.abre-menu i::after{content:"";position:absolute;left:0;width:18px;height:1.5px;background:var(--tinta)}
@@ -81,27 +83,23 @@ h1 em,h2 em,h3 em{font-style:italic;color:var(--acento)}
 .capa{padding-top:clamp(28px,4vw,56px)}
 .capa-g{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,72px);align-items:end}
 .capa-txt{padding-bottom:clamp(8px,2vw,24px)}
-.capa h1{font-size:clamp(46px,6.4vw,88px);line-height:1.04;margin:22px 0 26px}
+.capa h1{font-size:clamp(44px,5vw,72px);line-height:1.06;letter-spacing:-.012em;margin:22px 0 26px}
 .capa .sub{margin:0 0 34px;max-width:36ch;font-size:clamp(18px,1.5vw,20px);color:var(--tinta2)}
 .acoes{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px}
 .capa-foto{position:relative;margin:0}
-.capa-foto img{width:100%;aspect-ratio:1600/1133;object-fit:cover}
+.capa-foto img{width:100%;aspect-ratio:1600/1133;object-fit:cover;mix-blend-mode:multiply;filter:saturate(.9) contrast(1.02)}
+@media (min-width:901px){
+  .capa-g{grid-template-columns:minmax(0,6fr) minmax(0,6fr);align-items:stretch}
+  .capa-txt{display:flex;flex-direction:column;justify-content:flex-end}
+  .capa-foto img{height:100%;min-height:540px;aspect-ratio:auto;object-position:50% 30%}
+}
 .capa-foto figcaption{position:absolute;right:14px;bottom:12px;font-size:12px;letter-spacing:.04em;color:var(--mudo)}
 .ficha{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--tinta);margin-top:clamp(36px,5vw,56px)}
 .ficha>div{padding:20px 24px 4px 0}
 .ficha>div+div{padding-left:24px;border-left:1px solid var(--linha)}
 .ficha b{display:block;font:400 21px/1.25 var(--serifa);font-variation-settings:"opsz" 36;color:var(--tinta)}
 .ficha span{display:block;font-size:15px;line-height:1.5;color:var(--tinta2);margin-top:6px}
-.ficha small{display:block;font-size:13px;letter-spacing:.06em;color:var(--acento);margin-top:4px;font-variant-numeric:tabular-nums}
-
-/* faixa de dados */
-.dados{padding-block:clamp(48px,6vw,72px)}
-.dados-g{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-block:1px solid var(--linha)}
-.dados-g>div{padding:28px 24px 26px 0}
-.dados-g>div+div{padding-left:24px;border-left:1px solid var(--linha)}
-.dados strong{display:block;font:340 clamp(34px,3.6vw,48px)/1 var(--serifa);font-variation-settings:"opsz" 96;color:var(--tinta);font-variant-numeric:lining-nums}
-.dados span{display:block;margin-top:10px;font-size:15px;line-height:1.45;color:var(--tinta2)}
-.dados a{text-decoration:none}
+.ficha small{display:block;font-size:14px;letter-spacing:.06em;color:var(--petroleo);margin-top:4px;font-variant-numeric:tabular-nums}
 
 /* tratamentos: índice tipográfico */
 .trat{background:var(--cartao);border-block:1px solid var(--linha2)}
@@ -120,38 +118,49 @@ h1 em,h2 em,h3 em{font-style:italic;color:var(--acento)}
 .painel[hidden]{display:none}
 .painel p.lead{margin:0 0 26px;font:300 clamp(24px,2.3vw,30px)/1.3 var(--serifa);font-variation-settings:"opsz" 72;color:var(--tinta)}
 .itens{list-style:none;margin:0;padding:0}
-.itens li{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid var(--linha);font-size:18px}
-.itens li::after{content:"↗";color:var(--acento);flex:none}
+.itens li{border-bottom:1px solid var(--linha);font-size:18px}
+.itens a{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:56px;text-decoration:none;transition:color .25s,padding .3s}
+.itens a::after{content:"↗";color:var(--acento);flex:none}
+.itens a:hover{color:var(--acento);padding-left:6px}
 .quem{display:flex;align-items:center;gap:14px;margin-top:28px;font-size:15px;color:var(--tinta2)}
 .quem b{color:var(--tinta);font-weight:600}
-.quem .cro{font-size:13px;letter-spacing:.06em;color:var(--acento)}
+.quem .cro{font-size:14px;letter-spacing:.06em;color:var(--petroleo)}
 .painel .lnk{margin-top:26px}
 
 /* sono */
 .escuro{background:var(--petroleo);color:var(--papel-d)}
-.sono-g{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(32px,6vw,96px);align-items:center}
-.sono-foto{margin:0;background:#EEF0EE}
-.sono-foto img{width:100%;aspect-ratio:1080/640;object-fit:cover}
+.sono-g{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,96px);align-items:end}
+.sono-foto{margin:0}
+.sono-foto img{width:100%;aspect-ratio:1080/640;object-fit:cover;filter:saturate(.8) contrast(1.03)}
 .sono-foto figcaption{padding:14px 0 0;font-size:13px;letter-spacing:.04em;color:var(--mudo-d);background:var(--petroleo)}
-.sono h2{font-size:clamp(42px,5.6vw,76px);line-height:1.04;margin:18px 0 22px}
-.sono .lead{margin:0 0 34px;color:var(--mudo-d);max-width:40ch}
-.fatos{list-style:none;margin:0 0 36px;padding:0;counter-reset:f}
+.sono h2{font-size:clamp(38px,4.4vw,60px);line-height:1.06;margin:18px 0 22px}
+.sono h2 em{color:var(--agua)}
+.sono .lead{margin:0;color:var(--mudo-d);max-width:40ch}
+.fatos{list-style:none;margin:clamp(48px,6vw,72px) 0 36px;padding:0;counter-reset:f;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:clamp(20px,3vw,40px)}
 .fatos li{counter-increment:f;display:grid;grid-template-columns:44px minmax(0,1fr);padding:16px 0;border-top:1px solid var(--linha-d);font-size:17px;line-height:1.5}
 .fatos li::before{content:counter(f,decimal-leading-zero);font-size:13px;letter-spacing:.08em;color:var(--agua);padding-top:3px}
-.assina{font-size:14px;color:var(--mudo-d);margin:22px 0 0}
+.sono-pe{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px}
+.assina{font-size:14px;color:var(--mudo-d);margin:0}
 
 /* quem atende */
 .equipe-g{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,5vw,80px);align-items:end}
 .equipe-foto{margin:0}
-.equipe-foto img{width:100%;aspect-ratio:1600/1187;object-fit:cover}
-.equipe-txt h2{font-size:clamp(40px,5vw,64px);line-height:1.06;margin:18px 0 22px}
+.equipe-foto img{width:100%;aspect-ratio:1600/1187;object-fit:cover;mix-blend-mode:multiply;filter:saturate(.9) contrast(1.02)}
+@media (min-width:901px){
+  .equipe-g{grid-template-columns:minmax(0,1fr);row-gap:48px}
+  .equipe-foto img{aspect-ratio:16/7;object-position:50% 12%}
+  .equipe-txt{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(32px,5vw,80px);align-items:end}
+  .equipe-txt>.rot,.equipe-txt>h2,.equipe-txt>p{grid-column:1}
+  .equipe-txt .pessoas{grid-column:2;grid-row:1/span 3;margin-top:0}
+}
+.equipe-txt h2{font-size:clamp(34px,3.8vw,54px);line-height:1.08;margin:18px 0 22px}
 .equipe-txt p{margin:0 0 18px;color:var(--tinta2);max-width:42ch}
 .pessoas{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-top:1px solid var(--tinta);margin-top:34px}
 .pessoas>div{padding:18px 18px 0 0}
 .pessoas>div+div{padding-left:18px;border-left:1px solid var(--linha)}
 .pessoas b{display:block;font:400 20px/1.25 var(--serifa);font-variation-settings:"opsz" 36}
 .pessoas span{display:block;font-size:15px;color:var(--tinta2);margin-top:6px}
-.pessoas small{display:block;font-size:13px;letter-spacing:.06em;color:var(--acento);margin-top:3px}
+.pessoas small{display:block;font-size:14px;letter-spacing:.06em;color:var(--petroleo);margin-top:3px}
 
 /* avaliações */
 .aval{background:var(--pedra)}
@@ -160,6 +169,7 @@ h1 em,h2 em,h3 em{font-style:italic;color:var(--acento)}
 .nota strong{display:block;font:320 clamp(72px,8vw,112px)/.95 var(--serifa);font-variation-settings:"opsz" 120}
 .nota span{display:block;margin-top:12px;color:var(--tinta2)}
 .nota .lnk{margin-top:22px}
+.nota .rot{color:var(--acento);margin:0}
 .citacoes{display:grid}
 .cit{grid-area:1/1;margin:0;border-top:1px solid var(--linha);padding-top:22px}
 .js .cit{opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .6s,transform .6s,visibility 0s .6s}
@@ -171,46 +181,49 @@ html:not(.js) .cit+.cit{grid-area:auto;margin-top:28px}
 .cit-nav{display:flex;align-items:center;gap:10px;margin-top:34px}
 .cit-nav button{width:48px;height:48px;border:1px solid var(--linha);background:transparent;cursor:pointer;font-size:18px;transition:border-color .3s}
 .cit-nav button:hover{border-color:var(--tinta)}
-.cit-nav .cont{margin-left:10px;font-size:14px;color:var(--mudo);font-variant-numeric:tabular-nums}
+.cit-nav .cont{margin-left:10px;font-size:14px;color:var(--tinta2);font-variant-numeric:tabular-nums}
 .nojs-hide{display:none}
 .js .nojs-hide{display:flex}
 
 /* a clínica */
-.clinica-g{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,1fr);gap:clamp(14px,2vw,24px);align-items:start}
+.clinica-g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,24px);align-items:start}
 .clinica-g figure{margin:0}
-.clinica-g figure:nth-child(2){margin-top:clamp(40px,7vw,96px)}
-.clinica-g img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.clinica-g img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 70%;filter:saturate(.62) sepia(.08) contrast(1.05) brightness(1.02)}
 .clinica-g figcaption{display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;padding-top:12px;border-top:1px solid var(--linha);margin-top:14px;font-size:14px;line-height:1.45;color:var(--tinta2)}
 .clinica-g figcaption b{font-weight:500;color:var(--acento);font-variant-numeric:tabular-nums}
 
 /* agendar */
 .agendar{background:var(--petroleo)}
 .ag-g{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,6vw,96px);align-items:start}
-.ag-g h2{font-size:clamp(40px,5vw,64px);line-height:1.06;margin:18px 0 22px}
+.ag-g h2{font-size:clamp(34px,3.8vw,54px);line-height:1.08;margin:18px 0 22px}
 .ag-g .lead{margin:0 0 26px;color:var(--mudo-d);max-width:38ch}
 .ag-contatos{list-style:none;margin:0;padding:0;border-top:1px solid var(--linha-d)}
-.ag-contatos li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid var(--linha-d);font-size:16px}
+.ag-contatos li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;align-items:center;padding:2px 0;border-bottom:1px solid var(--linha-d);font-size:16px}
 .ag-contatos span{color:var(--mudo-d);font-size:14px;padding-top:2px}
-.ag-contatos a{text-decoration:none;border-bottom:1px solid var(--linha-d)}
+.ag-contatos a{display:block;padding-block:12px;text-decoration:none}
 .form{background:var(--papel);color:var(--tinta);padding:clamp(24px,3.4vw,44px)}
 .form fieldset{border:0;margin:0 0 26px;padding:0}
 .form legend{padding:0;margin-bottom:12px;font:400 21px/1.3 var(--serifa);font-variation-settings:"opsz" 36}
-.form legend small{font:400 14px var(--sans);color:var(--mudo);margin-left:6px}
-.opcoes{display:flex;flex-wrap:wrap;gap:8px}
+.form legend small{font:400 14px var(--sans);color:var(--tinta2);margin-left:6px}
+.opcoes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
 .opcoes label{position:relative}
 .opcoes input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
-.opcoes span{display:block;padding:12px 16px;border:1px solid var(--linha);font-size:16px;line-height:1.2;transition:background .25s,border-color .25s,color .25s;cursor:pointer}
+.opcoes span{display:flex;align-items:center;min-height:52px;padding:10px 14px;border:1px solid var(--linha);font-size:16px;line-height:1.2;transition:background .25s,border-color .25s,color .25s;cursor:pointer}
 .opcoes label:hover span{border-color:var(--tinta)}
 .opcoes input:checked+span{background:var(--petroleo);border-color:var(--petroleo);color:var(--papel)}
 .opcoes input:focus-visible+span{outline:2px solid var(--acento);outline-offset:2px}
 .campo{display:block;width:100%;min-height:54px;padding:0 16px;border:1px solid var(--linha);background:var(--cartao);font-size:17px}
 .campo:focus{border-color:var(--petroleo);outline:none}
-.form .btn{width:100%;justify-content:space-between;margin-top:6px}
-.form .obs{margin:14px 0 0;font-size:14px;color:var(--mudo)}
+.form .btn{width:100%;justify-content:space-between;margin-top:6px;background:var(--petroleo);color:var(--papel);border-color:var(--petroleo)}
+.form .btn:hover{background:var(--acento);border-color:var(--acento)}
+.form .obs{margin:14px 0 0;font-size:14px;color:var(--tinta2)}
 
 /* como chegar */
 .chegar-g{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,80px);align-items:start}
-.chegar-g h2{font-size:clamp(40px,5vw,64px);line-height:1.06;margin:18px 0 26px}
+.chegar-g h2{font-size:clamp(34px,3.8vw,54px);line-height:1.08;margin:18px 0 26px}
+.sala{display:flex;align-items:baseline;gap:16px;margin:0 0 20px;padding-top:18px;border-top:1px solid var(--tinta)}
+.sala b{font:300 clamp(72px,8vw,112px)/.9 var(--serifa);font-variation-settings:"opsz" 144;letter-spacing:-.02em;color:var(--petroleo);font-variant-numeric:lining-nums}
+.sala span{font-size:15px;line-height:1.45;color:var(--tinta2)}
 .end{font:300 clamp(24px,2.3vw,30px)/1.3 var(--serifa);font-variation-settings:"opsz" 72;margin:0 0 8px}
 .ref{margin:0 0 28px;color:var(--tinta2)}
 .horas{width:100%;border-collapse:collapse;margin:0 0 30px;font-size:16px}
@@ -219,10 +232,10 @@ html:not(.js) .cit+.cit{grid-area:auto;margin-top:28px}
 .horas td{font-variant-numeric:tabular-nums}
 .horas tr:last-child th,.horas tr:last-child td{border-bottom:1px solid var(--linha)}
 .mapas{display:flex;flex-wrap:wrap;gap:12px 24px}
-.chegar-fotos{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:clamp(14px,2vw,24px)}
+.chegar-fotos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2vw,24px)}
 .chegar-fotos figure{margin:0}
-.chegar-fotos img{width:100%;aspect-ratio:4/5;object-fit:cover}
-.mapa{position:relative;width:100%;aspect-ratio:4/5;border:0;background:var(--pedra);filter:grayscale(.55) contrast(.96)}
+.chegar-fotos img{width:100%;aspect-ratio:4/5;object-fit:cover;filter:saturate(.62) sepia(.08) contrast(1.05) brightness(1.02)}
+.mapa{position:relative;display:block;width:100%;aspect-ratio:4/5;border:0;background:var(--pedra);filter:grayscale(1) contrast(1.02)}
 .chegar-fotos figcaption{padding-top:12px;margin-top:14px;border-top:1px solid var(--linha);font-size:14px;color:var(--tinta2)}
 
 /* rodapé */
@@ -231,6 +244,8 @@ html:not(.js) .cit+.cit{grid-area:auto;margin-top:28px}
 .rodape img{width:190px}
 .rodape h4{margin:0 0 12px;font:500 12.5px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--agua)}
 .rodape p{margin:0 0 6px;font-size:15px;line-height:1.55}
+.rodape p:has(a){margin:0}
+.rodape p a{display:inline-block;padding-block:12px}
 .rodape a{text-decoration:none;color:var(--papel-d)}
 .rod-base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:48px;padding-top:22px;border-top:1px solid var(--linha-d);font-size:13px}
 
@@ -258,7 +273,7 @@ html:not(.js) .cit+.cit{grid-area:auto;margin-top:28px}
 @media (max-width:900px){
   body{font-size:17px}
   .topo .wrap{height:68px}
-  .marca img{width:138px}
+  .marca img{width:152px}
   html{scroll-padding-top:68px}
   .menu{display:none}
   .abre-menu{display:inline-flex}
@@ -272,20 +287,20 @@ html:not(.js) .cit+.cit{grid-area:auto;margin-top:28px}
   .capa h1{margin-top:16px}
   .ficha{grid-template-columns:minmax(0,1fr)}
   .ficha>div,.ficha>div+div{padding:16px 0;border-left:0;border-bottom:1px solid var(--linha)}
-  .dados-g{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .dados-g>div:nth-child(3){padding-left:0;border-left:0}
-  .dados-g>div:nth-child(n+3){border-top:1px solid var(--linha)}
   .equipe-foto{margin-inline:calc(var(--pad) * -1)}
+  .equipe-foto img{aspect-ratio:16/10;object-position:50% 15%}
+  .sono-foto{order:2}
+  .fatos{grid-template-columns:minmax(0,1fr);margin-top:40px}
+  .opcoes{grid-template-columns:repeat(2,minmax(0,1fr))}
   .clinica-g{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
   .clinica-g figure:first-child{grid-column:1/-1}
   .clinica-g figure:first-child img{aspect-ratio:4/3}
-  .clinica-g figure:nth-child(2){margin-top:0}
   .rod-g{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
   .rod-g>div:first-child{grid-column:1/-1}
-  .barra{display:grid;grid-template-columns:1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:60;padding-bottom:env(safe-area-inset-bottom);background:var(--petroleo);border-top:1px solid var(--linha-d);transform:translateY(110%);transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+  .barra{display:grid;grid-template-columns:1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:60;padding-bottom:env(safe-area-inset-bottom);background:var(--petroleo);border-top:0;box-shadow:0 -1px 0 rgba(27,35,38,.22);transform:translateY(110%);transition:transform .4s cubic-bezier(.2,.7,.2,1)}
   .barra.on{transform:none}
   .barra a{display:flex;align-items:center;justify-content:center;gap:10px;min-height:58px;color:var(--papel);text-decoration:none;font-weight:500;font-size:16px}
-  .barra a+a{border-left:1px solid var(--linha-d);background:var(--papel);color:var(--petroleo)}
+  .barra a+a{border-left:0;background:var(--pedra);color:var(--petroleo)}
   .rodape{padding-bottom:calc(96px + env(safe-area-inset-bottom))}
 }
 @media (max-width:560px){
@@ -309,7 +324,7 @@ html:not(.js) .cit+.cit{grid-area:auto;margin-top:28px}
 
 <header class="topo" data-topo>
   <div class="wrap">
-    <a class="marca" href="#inicio" aria-label="Clínica Tasca Ronchetti, início"><img src="img/logo-tr.png" width="593" height="259" alt="Clínica Tasca Ronchetti · Odontologia para uma saúde plena"></a>
+    <a class="marca" href="#inicio" aria-label="Clínica Tasca Ronchetti, início"><img src="img/logo-tr-topo.png" width="582" height="212" alt="Clínica Tasca Ronchetti"></a>
     <nav class="menu" id="menu" aria-label="Principal">
       <a class="lk" href="#tratamentos">Tratamentos</a>
       <a class="lk" href="#sono">Ronco e apneia</a>
@@ -348,21 +363,11 @@ html:not(.js) .cit+.cit{grid-area:auto;margin-top:28px}
   </div>
 </section>
 
-<section class="dados" aria-label="A clínica em números">
-  <div class="wrap">
-    <div class="dados-g">
-      <div class="rv"><strong>5,0</strong><span>no Google, com 48 avaliações de pacientes</span></div>
-      <div class="rv"><strong>40 anos</strong><span>de experiência em odontologia</span></div>
-      <div class="rv"><strong>10º andar</strong><span>consultório com vista e banheiro com acessibilidade</span></div>
-      <div class="rv"><strong>Seg a sáb</strong><span>8h às 12h e 14h às 18h · sábado até 12h</span></div>
-    </div>
-  </div>
-</section>
 
 <section class="sec trat" id="tratamentos">
   <div class="wrap">
     <div class="sec-cab">
-      <div><span class="rot rv">Tratamentos</span><h2 class="rv">O que tratamos, e <em>quem</em> responde por cada área.</h2></div>
+      <div><span class="rot rv">Tratamentos</span><h2 class="rv">O que tratamos, e quem responde por cada área.</h2></div>
       <p class="rv">Cada área tem um dentista responsável. Você sabe, antes de marcar, quem vai atender.</p>
     </div>
     <div class="indice">
@@ -375,23 +380,23 @@ html:not(.js) .cit+.cit{grid-area:auto;margin-top:28px}
       <div class="rv">
         <div class="painel" id="p-sono" role="tabpanel" aria-labelledby="t-sono">
           <p class="lead">Ronco, apneia e o hábito de ranger os dentes dormindo.</p>
-          <ul class="itens"><li>Aparelho intraoral feito sob medida</li><li>Placa para bruxismo do sono</li><li>Consultas de ajuste e acompanhamento</li></ul>
+          <ul class="itens"><li><a href="https://wa.me/5551980124722?text=Ol%C3%A1%21%20Vi%20o%20site%20e%20quero%20saber%20sobre%20aparelho%20intraoral%20feito%20sob%20medida." target="_blank" rel="noopener">Aparelho intraoral feito sob medida</a></li><li><a href="https://wa.me/5551980124722?text=Ol%C3%A1%21%20Vi%20o%20site%20e%20quero%20saber%20sobre%20placa%20para%20bruxismo%20do%20sono." target="_blank" rel="noopener">Placa para bruxismo do sono</a></li><li><a href="https://wa.me/5551980124722?text=Ol%C3%A1%21%20Vi%20o%20site%20e%20quero%20saber%20sobre%20consultas%20de%20ajuste%20e%20acompanhamento." target="_blank" rel="noopener">Consultas de ajuste e acompanhamento</a></li></ul>
           <p class="quem"><span><b>Dr. Giovani Ronchetti</b> · cirurgião-dentista · <span class="cro">CRO/RS 11807</span></span></p>
           <a class="lnk" href="#sono">Como funciona o aparelho <span aria-hidden="true">↓</span></a>
         </div>
         <div class="painel" id="p-geri" role="tabpanel" aria-labelledby="t-geri" hidden>
           <p class="lead">A saúde da boca depois dos 60, com consulta sem pressa e cada etapa explicada.</p>
-          <ul class="itens"><li>Avaliação completa e plano por etapas</li><li>Cuidado com próteses e com o conforto ao mastigar</li><li>Acompanhamento ao longo dos anos</li></ul>
+          <ul class="itens"><li><a href="https://wa.me/5551980124722?text=Ol%C3%A1%21%20Vi%20o%20site%20e%20quero%20saber%20sobre%20avalia%C3%A7%C3%A3o%20completa%20e%20plano%20por%20etapas." target="_blank" rel="noopener">Avaliação completa e plano por etapas</a></li><li><a href="https://wa.me/5551980124722?text=Ol%C3%A1%21%20Vi%20o%20site%20e%20quero%20saber%20sobre%20cuidado%20com%20pr%C3%B3teses%20e%20com%20o%20conforto%20ao%20mastigar." target="_blank" rel="noopener">Cuidado com próteses e com o conforto ao mastigar</a></li><li><a href="https://wa.me/5551980124722?text=Ol%C3%A1%21%20Vi%20o%20site%20e%20quero%20saber%20sobre%20acompanhamento%20ao%20longo%20dos%20anos." target="_blank" rel="noopener">Acompanhamento ao longo dos anos</a></li></ul>
           <p class="quem"><span><b>Dra. Maria Regina Ronchetti</b> · cirurgiã-dentista · <span class="cro">CRO/RS 6830</span></span></p>
         </div>
         <div class="painel" id="p-est" role="tabpanel" aria-labelledby="t-est" hidden>
           <p class="lead">Sorriso mais claro e dentes alinhados, com planejamento antes de começar.</p>
-          <ul class="itens"><li>Clareamento dental</li><li>Alinhadores transparentes</li><li>Avaliação estética do sorriso</li></ul>
+          <ul class="itens"><li><a href="https://wa.me/5551980124722?text=Ol%C3%A1%21%20Vi%20o%20site%20e%20quero%20saber%20sobre%20clareamento%20dental." target="_blank" rel="noopener">Clareamento dental</a></li><li><a href="https://wa.me/5551980124722?text=Ol%C3%A1%21%20Vi%20o%20site%20e%20quero%20saber%20sobre%20alinhadores%20transparentes." target="_blank" rel="noopener">Alinhadores transparentes</a></li><li><a href="https://wa.me/5551980124722?text=Ol%C3%A1%21%20Vi%20o%20site%20e%20quero%20saber%20sobre%20avalia%C3%A7%C3%A3o%20est%C3%A9tica%20do%20sorriso." target="_blank" rel="noopener">Avaliação estética do sorriso</a></li></ul>
           <p class="quem"><span><b>Equipe Tasca Ronchetti</b></span></p>
         </div>
         <div class="painel" id="p-func" role="tabpanel" aria-labelledby="t-func" hidden>
           <p class="lead">Consulta, prevenção e o cuidado do dia a dia, para a boca funcionar bem.</p>
-          <ul class="itens"><li>Consulta de rotina e prevenção</li><li>Mordida, mastigação e articulação</li><li>Atendimento para a família toda</li></ul>
+          <ul class="itens"><li><a href="https://wa.me/5551980124722?text=Ol%C3%A1%21%20Vi%20o%20site%20e%20quero%20saber%20sobre%20consulta%20de%20rotina%20e%20preven%C3%A7%C3%A3o." target="_blank" rel="noopener">Consulta de rotina e prevenção</a></li><li><a href="https://wa.me/5551980124722?text=Ol%C3%A1%21%20Vi%20o%20site%20e%20quero%20saber%20sobre%20mordida%2C%20mastiga%C3%A7%C3%A3o%20e%20articula%C3%A7%C3%A3o." target="_blank" rel="noopener">Mordida, mastigação e articulação</a></li><li><a href="https://wa.me/5551980124722?text=Ol%C3%A1%21%20Vi%20o%20site%20e%20quero%20saber%20sobre%20atendimento%20para%20a%20fam%C3%ADlia%20toda." target="_blank" rel="noopener">Atendimento para a família toda</a></li></ul>
           <p class="quem"><span><b>Dra. Maria Regina e Dr. Giovani Ronchetti</b></span></p>
         </div>
       </div>
@@ -402,22 +407,24 @@ html:not(.js) .cit+.cit{grid-area:auto;margin-top:28px}
 <section class="sec escuro sono" id="sono">
   <div class="wrap">
     <div class="sono-g">
-      <figure class="sono-foto rv">
-        <img src="img/aparelho.webp" srcset="img/aparelho-640.webp 640w, img/aparelho.webp 1080w" sizes="(max-width: 900px) 100vw, 52vw" width="1080" height="640" alt="Aparelho intraoral azul ao lado do estojo branco com a marca da clínica" loading="lazy">
-        <figcaption>Aparelho intraoral e estojo da clínica.</figcaption>
-      </figure>
       <div>
         <span class="rot rv">Ronco e apneia</span>
         <h2 class="rv">Ronco não é <em>normal.</em></h2>
         <p class="lead rv">Ele pode ser o primeiro sinal de que a respiração está sendo interrompida durante a noite.</p>
-        <ol class="fatos rv">
-          <li>O aparelho é feito sob medida para a sua arcada.</li>
-          <li>Durante o sono, ele posiciona a mandíbula levemente para frente. A via aérea fica mais aberta e o ar passa com mais facilidade.</li>
-          <li>A adaptação costuma ser rápida. Os ajustes são feitos nas consultas de acompanhamento.</li>
-        </ol>
-        <a class="btn rv" href="https://wa.me/5551980124722?text=Ol%C3%A1!%20Vi%20o%20site%20e%20quero%20conversar%20sobre%20tratamento%20para%20ronco." target="_blank" rel="noopener">Conversar sobre ronco <span class="seta" aria-hidden="true">→</span></a>
-        <p class="assina rv">Dr. Giovani Ronchetti · cirurgião-dentista · CRO/RS 11807</p>
       </div>
+      <figure class="sono-foto rv">
+        <img src="img/aparelho.webp" srcset="img/aparelho-640.webp 640w, img/aparelho.webp 1080w" sizes="(max-width: 900px) 100vw, 52vw" width="1080" height="640" alt="Aparelho intraoral azul ao lado do estojo branco com a marca da clínica" loading="lazy">
+        <figcaption>Aparelho intraoral e estojo da clínica.</figcaption>
+      </figure>
+    </div>
+    <ol class="fatos rv">
+      <li>O aparelho é feito sob medida para a sua arcada.</li>
+      <li>Durante o sono, ele posiciona a mandíbula levemente para frente. A via aérea fica mais aberta e o ar passa com mais facilidade.</li>
+      <li>A adaptação costuma ser rápida. Os ajustes são feitos nas consultas de acompanhamento.</li>
+    </ol>
+    <div class="sono-pe rv">
+      <a class="btn" href="https://wa.me/5551980124722?text=Ol%C3%A1!%20Vi%20o%20site%20e%20quero%20conversar%20sobre%20tratamento%20para%20ronco." target="_blank" rel="noopener">Conversar sobre ronco <span class="seta" aria-hidden="true">→</span></a>
+      <p class="assina">Dr. Giovani Ronchetti · cirurgião-dentista · CRO/RS 11807</p>
     </div>
   </div>
 </section>
@@ -430,8 +437,8 @@ html:not(.js) .cit+.cit{grid-area:auto;margin-top:28px}
       </figure>
       <div class="equipe-txt">
         <span class="rot rv">Quem atende</span>
-        <h2 class="rv">Irmãos, sócios e <em>dentistas</em>.</h2>
-        <p class="rv">Maria Regina e Giovani dividem a clínica desde 2010. Nas avaliações dos pacientes, o que mais aparece é o jeito de explicar cada etapa do tratamento.</p>
+        <h2 class="rv">Irmãos, sócios e dentistas.</h2>
+        <p class="rv">São 40 anos de odontologia. Maria Regina e Giovani dividem a clínica desde 2010, e nas avaliações dos pacientes o que mais aparece é o jeito de explicar cada etapa.</p>
         <div class="pessoas rv">
           <div><b>Dra. Maria Regina Ronchetti</b><span>Cirurgiã-dentista · clínica e pacientes 60+</span><small>CRO/RS 6830</small></div>
           <div><b>Dr. Giovani Ronchetti</b><span>Cirurgião-dentista · ronco, apneia e bruxismo</span><small>CRO/RS 11807</small></div>
@@ -452,10 +459,10 @@ html:not(.js) .cit+.cit{grid-area:auto;margin-top:28px}
       </div>
       <div class="rv">
         <div class="citacoes" data-cit>
-          <figure class="cit on"><blockquote>“Explica tudo o que vai ser feito de uma forma muito clara e inspira confiança no tratamento.”</blockquote><figcaption><b>Paciente</b> · avaliação no Google</figcaption></figure>
+          <figure class="cit on"><blockquote>“A Tasca Odontologia faz parte da nossa família há muitos anos.”</blockquote><figcaption><b>Paciente</b> · avaliação no Google</figcaption></figure>
           <figure class="cit"><blockquote>“No atendimento esclarece as dúvidas, assim fico tranquila e com confiança no tratamento.”</blockquote><figcaption><b>Paciente</b> · avaliação no Google</figcaption></figure>
-          <figure class="cit"><blockquote>“Profissionais capacitados e estrutura nota 10.”</blockquote><figcaption><b>Destaque do Google</b> · resumo das avaliações</figcaption></figure>
-          <figure class="cit"><blockquote>“Além de excelentes profissionais, têm um jeito muito especial de atender.”</blockquote><figcaption><b>Paciente</b> · avaliação no Google</figcaption></figure>
+          <figure class="cit"><blockquote>“O Dr. Ronchetti mostrou muito conhecimento e profissionalismo.”</blockquote><figcaption><b>Paciente</b> · avaliação no Google</figcaption></figure>
+          <figure class="cit"><blockquote>“A secretária é muito eficiente, prestativa e educada.”</blockquote><figcaption><b>Paciente</b> · avaliação no Google</figcaption></figure>
         </div>
         <div class="cit-nav nojs-hide">
           <button type="button" data-ant aria-label="Avaliação anterior">←</button>
@@ -470,7 +477,7 @@ html:not(.js) .cit+.cit{grid-area:auto;margin-top:28px}
 <section class="sec" id="clinica">
   <div class="wrap">
     <div class="sec-cab">
-      <div><span class="rot rv">A clínica</span><h2 class="rv">Uma sala no 10º andar, <em>com janela</em> para a cidade.</h2></div>
+      <div><span class="rot rv">A clínica</span><h2 class="rv">Uma sala no 10º andar, com janela para a cidade.</h2></div>
       <p class="rv">Consulta com hora marcada, longe do movimento da rua. O prédio tem recepção, e a nossa porta é a 1003.</p>
     </div>
     <div class="clinica-g">
@@ -486,11 +493,10 @@ html:not(.js) .cit+.cit{grid-area:auto;margin-top:28px}
     <div class="ag-g">
       <div>
         <span class="rot rv">Agendar</span>
-        <h2 class="rv">Três respostas e a conversa <em>já começa</em> pronta.</h2>
+        <h2 class="rv">Três respostas e a conversa já começa pronta.</h2>
         <p class="lead rv">Escolha o motivo e o melhor período. A mensagem abre no nosso WhatsApp, e a recepção confirma o horário com você.</p>
         <ul class="ag-contatos rv">
-          <li><span>WhatsApp</span><a href="https://wa.me/5551980124722" target="_blank" rel="noopener">(51) 98012-4722</a></li>
-          <li><span>Telefone</span><a href="tel:+5551980124722">(51) 98012-4722</a></li>
+          <li><span>WhatsApp e ligação</span><a href="https://wa.me/5551980124722" target="_blank" rel="noopener">(51) 98012-4722</a></li>
           <li><span>E-mail</span><a href="mailto:contato@tascaronchetti.com.br">contato@tascaronchetti.com.br</a></li>
         </ul>
       </div>
@@ -530,9 +536,10 @@ html:not(.js) .cit+.cit{grid-area:auto;margin-top:28px}
     <div class="chegar-g">
       <div>
         <span class="rot rv">Como chegar</span>
-        <h2 class="rv">Ao lado da Churrascaria <em>Jardim do Lago</em>.</h2>
-        <p class="end rv">R. Liberdade, 33, sala 1003<br>Centro Empresarial Jardim do Lago</p>
-        <p class="ref rv">Marechal Rondon, Canoas · RS · CEP 92020-240</p>
+        <h2 class="rv">Ao lado da Churrascaria Jardim do Lago.</h2>
+        <p class="sala rv"><b>1003</b><span>sala no 10º andar<br>porta de madeira com a placa da clínica</span></p>
+        <p class="end rv">R. Liberdade, 33<br>Centro Empresarial Jardim do Lago</p>
+        <p class="ref rv">Marechal Rondon, Canoas · RS · <span style="white-space:nowrap">CEP 92020-240</span></p>
         <table class="horas rv">
           <caption class="rot" style="text-align:left;caption-side:top;padding-bottom:12px">Horário</caption>
           <tr><th scope="row">Segunda a sexta</th><td>8h às 12h · 14h às 18h</td></tr>
